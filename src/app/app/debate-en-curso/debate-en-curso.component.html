@@ -1,0 +1,48 @@
+<section class="mat-typography">
+  <h1>Segundo Debate</h1>
+  <h3>
+    Estado:
+    <span class="mat-body-2">En Debate</span>
+  </h3>
+  <h3>
+    Fecha: 10/01/2018
+  </h3>
+  <h3 class="agenda">Agenda:</h3>
+  <mat-list role="list">
+    <mat-list-item role="listitem" class="actual">Tema 1</mat-list-item>
+    <mat-list-item role="listitem">Tema 2</mat-list-item>
+    <mat-list-item role="listitem">Tema 3</mat-list-item>
+  </mat-list>
+
+
+  <div *ngIf="mostrarTomarPalabra" class="emergente" [@altura]="estadoTomarPalabra">
+    <button mat-button class="titulo-pregunta" (click)="toggle()">
+      ¿Tomar la Palabra?
+    </button>
+    <div class="opciones">
+      <button mat-button class="si">
+        Si
+      </button>
+      <button mat-button class="no">
+        No
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="mostrarVotar" class="emergente" [@altura]="estadoTomarPalabra">
+    <button mat-button class="titulo-pregunta" (click)="toggle()">
+      ¿Expulsar al presidente PPK por ser cuy y no rata?
+    </button>
+    <div class="opciones">
+      <button mat-button class="si" (click)="alert()">
+        Si
+      </button>
+      <button mat-button class="no">
+        No
+      </button>
+    </div>
+  </div>
+
+  <div class="fondo">
+  </div>
+</section>

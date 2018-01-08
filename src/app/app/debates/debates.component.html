@@ -1,0 +1,24 @@
+<div class="jaja">
+  <mat-nav-list>
+    <h3 mat-subheader>Pendientes</h3>
+    <a mat-list-item *ngFor="let debate of debatesPendientes" [routerLink]="['./../debate/12']" class="pendientes">
+      <mat-icon mat-list-icon>folder</mat-icon>
+      <h4 mat-line>{{debate.titulo}}</h4>
+      <p mat-line>{{debate.estado}}</p>
+    </a>
+    <mat-divider></mat-divider>
+    <h3 mat-subheader>En Curso</h3>
+    <a mat-list-item class="en-curso" [routerLink]="['./../debate-en-curso']">
+      <mat-icon mat-list-icon>folder_shared</mat-icon>
+      <h4 mat-line>Ahora</h4>
+      <p mat-line>huh?</p>
+    </a>
+    <mat-divider></mat-divider>
+    <h3 mat-subheader>Finalizados</h3>
+    <a mat-list-item *ngFor="let debate of debatesFinalizados" [routerLink]="['./../debate/12']" class="finalizados">
+      <mat-icon mat-list-icon>folder</mat-icon>
+      <h4 mat-line>{{debate.titulo}}</h4>
+      <p mat-line>{{debate.estado}}</p>
+    </a>
+  </mat-nav-list>
+</div>

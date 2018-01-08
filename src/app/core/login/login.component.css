@@ -1,0 +1,31 @@
+.container {
+  display: flex;  
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  /*centrar el fucking contenido :v*/
+  height: 100%;
+  width: 100%;
+  position: fixed;
+}
+
+form{
+  padding: 40px 40px 40px 40px;
+  width: 400px;
+  overflow: auto;
+  box-sizing: border-box;
+  margin-bottom: 50px;
+}
+form h1{
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+mat-form-field {
+  display: block;
+}
+
+button{
+  display: block;
+}

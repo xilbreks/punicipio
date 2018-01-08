@@ -1,0 +1,16 @@
+<div class="container">
+  <form class="mat-elevation-z8">
+    <h1>Punicipio</h1>
+    <mat-form-field>
+      <input matInput type="text" #username placeholder="Usuario">
+    </mat-form-field>
+      
+    <mat-form-field>
+      <input matInput type="password" #password placeholder="Password">
+    </mat-form-field>
+
+    <button mat-raised-button (click)="logIn(username,password)" color="primary">
+      Log In
+    </button>
+  </form>
+</div>
