@@ -12,9 +12,14 @@ export class LoginComponent implements OnInit {
 
   }
 
-  logIn(user,password):boolean{
-    console.log(user.value,password.value)
-    this.router.navigate(['./app/miembro/debates'])
+  logIn(user, password): boolean {
+    //console.log(user.value,password.value)
+    if (user.value == '1')
+      this.router.navigate(['/miembro/app/debates'])
+    else if (user.value == '2')
+      this.router.navigate(['/secretario/app/debates'])
+    else if (user.value == '3')
+      this.router.navigate(['/presidente/app/debates'])
     return false;
   }
 

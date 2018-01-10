@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { RouterModule, Routes } from '@angular/router';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatInputModule } from '@angular/material/input';
@@ -18,8 +17,16 @@ const appRoutes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'app',
-    loadChildren: './../app/app.module#AppModule'
+    path: 'miembro',
+    loadChildren: './../miembro/miembro.module#MiembroModule'
+  },
+  {
+    path: 'secretario',
+    loadChildren: './../secretario/secretario.module#SecretarioModule'
+  },
+  {
+    path: 'presidente',
+    loadChildren: './../presidente/presidente.module#PresidenteModule'
   },
   {
     path: '**',
@@ -32,11 +39,10 @@ const appRoutes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forRoot(appRoutes,{useHash:true,enableTracing:false}),
-    BrowserAnimationsModule,
-    MatButtonModule,
-    MatProgressSpinnerModule,
+    MatFormFieldModule,
     MatInputModule,
-    MatFormFieldModule
+    MatButtonModule,
+    MatProgressSpinnerModule
   ],
   declarations: [
     LoginComponent,

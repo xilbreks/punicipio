@@ -12,25 +12,33 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
-import { AppComponent } from './app.component';
+import { MatNativeDateModule } from '@angular/material';
+
+import { SecretarioComponent } from './secretario.component';
 import { DebatesComponent } from './debates/debates.component';
 import { DebateComponent } from './debate/debate.component';
-import { DebateEnCursoComponent } from './debate-en-curso/debate-en-curso.component';
 import { UsuarioComponent } from './usuario/usuario.component';
+import { NuevoDebateComponent } from './nuevo-debate/nuevo-debate.component';
+import { DebateEditComponent } from './debate-edit/debate-edit.component';
+import { DebateEnCursoComponent } from './debate-en-curso/debate-en-curso.component';
 
 const childRoutes: Routes = [
   {
-    path: 'miembro',
-    component: AppComponent,
+    path: 'app',
+    component: SecretarioComponent,
     children: [
       {
         path: 'debates',
         component: DebatesComponent
       },
       {
-        path: 'debate/:id',
-        component: DebateComponent
+        path: 'nuevo',
+        component: NuevoDebateComponent
       },
       {
         path: 'debate-en-curso',
@@ -39,12 +47,20 @@ const childRoutes: Routes = [
       {
         path: 'usuario',
         component: UsuarioComponent
+      },
+      {
+        path: 'debate/:id',
+        component: DebateComponent
+      },
+      {
+        path: 'debate/:id/edit',
+        component: DebateEditComponent
       }
     ]
   },
   {
     path: '**',
-    redirectTo: 'miembro/debates'
+    redirectTo: 'app/debates'
   }
 ];
 
@@ -60,13 +76,21 @@ const childRoutes: Routes = [
     MatButtonModule,
     MatSnackBarModule,
     MatDialogModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   declarations: [
-    AppComponent, 
-    DebatesComponent, 
-    DebateComponent, 
-    DebateEnCursoComponent, UsuarioComponent
+    SecretarioComponent,
+    DebatesComponent,
+    DebateComponent,
+    UsuarioComponent,
+    NuevoDebateComponent,
+    DebateEditComponent,
+    DebateEnCursoComponent
   ]
 })
-export class AppModule { }
+export class SecretarioModule { }

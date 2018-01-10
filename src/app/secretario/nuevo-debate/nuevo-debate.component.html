@@ -1,0 +1,20 @@
+<form class="contenedor">
+  <mat-form-field>
+    <input matInput placeholder="Nombre del Debate">
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea matInput placeholder="Agenda"></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+    <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+    <input matInput [matDatepicker]="dp3" placeholder="Fecha del debate" disabled>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="crear()">
+    Crear
+  </button>
+
+</form>

@@ -1,0 +1,11 @@
+.contenedor{
+  display: flex;
+  flex-direction: column;
+  padding: 15px 30px;
+}
+.mat-form-field {
+  display: block;
+}
+button{
+  width: fit-content;
+}

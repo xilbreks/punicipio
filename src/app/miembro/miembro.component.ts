@@ -7,11 +7,11 @@ import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 
 @Component({
-  selector: 'app-app',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-miembro',
+  templateUrl: './miembro.component.html',
+  styleUrls: ['./miembro.component.css']
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class MiembroComponent implements OnInit, OnDestroy {
 
   url:string;
   subscription: Subscription;

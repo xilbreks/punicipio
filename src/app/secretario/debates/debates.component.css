@@ -1,0 +1,20 @@
+.mat-list-icon {
+  color: rgba(0, 0, 0, 0.54);
+}
+.pendientes .mat-list-icon{
+  color: rgba(16, 38, 165, 0.54);
+}
+.en-curso .mat-list-icon{
+  color: rgba(0, 145, 0, 0.54);
+}
+.finalizados .mat-list-icon{
+  color: rgba(107, 26, 44, 0.54);
+}
+.crear-nuevo{
+  position: fixed;
+  z-index: 10;
+  bottom: 24px;
+  right: 24px;
+  margin-right: 12px;
+  transition-property: background-color,box-shadow;
+}
