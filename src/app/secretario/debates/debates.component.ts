@@ -10,7 +10,7 @@ import { DebatesService } from './../debates.service';
 })
 export class DebatesComponent implements OnInit {
 
-  constructor(private ds: DebatesService) {
+  constructor(public ds: DebatesService) {
   }
 
   ngOnInit() {
