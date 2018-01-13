@@ -1,6 +1,6 @@
 <mat-nav-list>
   <h3 mat-subheader>Pendientes</h3>
-  <a mat-list-item *ngFor="let debate of debatesPendientes" [routerLink]="['./../debate/12']" class="pendientes">
+  <a mat-list-item class="pendientes" *ngFor="let debate of ds.debatesPendientes | async" [routerLink]="['./../debate/'+debate.key]">
     <mat-icon mat-list-icon>folder</mat-icon>
     <h4 mat-line>{{debate.titulo}}</h4>
     <p mat-line>{{debate.estado}}</p>
@@ -14,7 +14,7 @@
   </a>
   <mat-divider></mat-divider>
   <h3 mat-subheader>Finalizados</h3>
-  <a mat-list-item *ngFor="let debate of debatesFinalizados" [routerLink]="['./../debate/12']" class="finalizados">
+  <a mat-list-item class="finalizados" *ngFor="let debate of ds.debatesFinalizados | async" [routerLink]="['./../debate/'+debate.key]">
     <mat-icon mat-list-icon>folder</mat-icon>
     <h4 mat-line>{{debate.titulo}}</h4>
     <p mat-line>{{debate.estado}}</p>

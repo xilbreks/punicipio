@@ -1,15 +1,19 @@
 <div class="container">
   <form class="mat-elevation-z8">
     <h1>Punicipio</h1>
+    <div class="relativo" *ngIf="waitingResponse">
+      <mat-progress-spinner class="example-margin" mode="indeterminate" >
+      </mat-progress-spinner>
+    </div>
     <mat-form-field>
       <input matInput type="text" #username placeholder="Usuario">
     </mat-form-field>
-      
+
     <mat-form-field>
       <input matInput type="password" #password placeholder="Password">
     </mat-form-field>
 
-    <button mat-raised-button (click)="logIn(username,password)" color="primary">
+    <button mat-raised-button (click)="logIn(username,password)" color="primary" [disabled]="waitingResponse">
       Log In
     </button>
   </form>

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { RouterModule, Routes } from '@angular/router';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -39,6 +40,7 @@ const appRoutes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forRoot(appRoutes,{useHash:true,enableTracing:false}),
+    AngularFireAuthModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,

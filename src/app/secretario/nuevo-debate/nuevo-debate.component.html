@@ -1,19 +1,19 @@
-<form class="contenedor">
+<form class="mat-typography" [formGroup]="debateForm" (ngSubmit)="onSubmit(debateForm.value)">
   <mat-form-field>
-    <input matInput placeholder="Nombre del Debate">
+    <input matInput placeholder="Titulo del Debate" [formControl]="debateForm.controls['titulo']">
   </mat-form-field>
 
   <mat-form-field>
-    <textarea matInput placeholder="Agenda"></textarea>
+    <textarea matInput placeholder="Agenda" rows="5" [formControl]="debateForm.controls['agenda']"></textarea>
   </mat-form-field>
 
   <mat-form-field>
-    <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
-    <mat-datepicker #dp3 disabled="false"></mat-datepicker>
-    <input matInput [matDatepicker]="dp3" placeholder="Fecha del debate" disabled>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker disabled="false" touchUi="true"></mat-datepicker>
+    <input matInput [matDatepicker]="picker" placeholder="Fecha del debate (mm/dd/yyyy)" [formControl]="debateForm.controls['fecha']">
   </mat-form-field>
 
-  <button mat-raised-button color="primary" (click)="crear()">
+  <button type="submit" mat-raised-button color="primary">
     Crear
   </button>
 

@@ -1,0 +1,11 @@
+.mat-typography{
+  padding: 10px 15px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.mat-form-field {
+  display: block;
+}
+button{
+  width: fit-content;
+}

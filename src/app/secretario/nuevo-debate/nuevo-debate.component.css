@@ -1,7 +1,7 @@
-.contenedor{
-  display: flex;
-  flex-direction: column;
-  padding: 15px 30px;
+.mat-typography{
+  padding: 10px 15px;
+  width: 100%;
+  box-sizing: border-box;
 }
 .mat-form-field {
   display: block;

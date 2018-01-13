@@ -29,3 +29,13 @@ mat-form-field {
 button{
   display: block;
 }
+.relativo{
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.mat-progress-spinner{
+  position: absolute;
+}

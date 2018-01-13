@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router'
+
+import { Router } from '@angular/router';
+
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   selector: 'app-login',
@@ -8,22 +11,39 @@ import { Router } from '@angular/router'
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router) {
+  waitingResponse: boolean;
 
+  constructor(private router: Router, private auth: AngularFireAuth) {
+    this.waitingResponse = false;
   }
 
   logIn(user, password): boolean {
-    //console.log(user.value,password.value)
-    if (user.value == '1')
-      this.router.navigate(['/miembro/app/debates'])
-    else if (user.value == '2')
-      this.router.navigate(['/secretario/app/debates'])
-    else if (user.value == '3')
-      this.router.navigate(['/presidente/app/debates'])
+
+    this.waitingResponse = true;
+
+    this.auth.auth.signInWithEmailAndPassword(user.value, password.value)
+      .catch((err) => {
+        this.waitingResponse = false;
+        //console.log(err)
+        alert(err.message);
+        user.value = '';
+        password.value = '';
+      })
+      .then((u) => {
+        this.waitingResponse = false;
+        if (u.email == 'miembro_punicipio@gmail.com')
+          this.router.navigate(['/miembro/app/debates'])
+        else if (u.email == 'secretario_punicipio@gmail.com')
+          this.router.navigate(['/secretario/app/debates'])
+        else if (u.email == 'presidente_punicipio@gmail.com')
+          this.router.navigate(['/presidente/app/debates'])
+      })
+
     return false;
   }
 
   ngOnInit() {
+    //this.auth.auth.signOut()
   }
 
 }

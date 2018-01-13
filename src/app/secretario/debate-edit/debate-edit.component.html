@@ -1,3 +1,20 @@
-<p>
-  debate-edit works!
-</p>
+<form class="mat-typography" [formGroup]="debateForm" (ngSubmit)="onSubmit(debateForm.value)">
+  <mat-form-field>
+    <input matInput placeholder="Titulo del Debate" [formControl]="debateForm.controls['titulo']">
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea matInput placeholder="Agenda" rows="5" [formControl]="debateForm.controls['agenda']"></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker [disabled]="debateForm.disabled" touchUi="true"></mat-datepicker>
+    <input matInput [matDatepicker]="picker" placeholder="Fecha del debate (mm/dd/yyyy)" [formControl]="debateForm.controls['fecha']">
+  </mat-form-field>
+
+  <button type="submit" mat-raised-button color="primary" [disabled]="debateForm.disabled">
+    Editar
+  </button>
+
+</form>
