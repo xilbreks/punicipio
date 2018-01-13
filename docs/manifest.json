@@ -1,0 +1,16 @@
+{
+  "short_name": "Punicipio",
+  "name": "Aplicacion para los debates",
+  "start_url": "/",
+  "theme_color": "#f48c5b",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/assets/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
