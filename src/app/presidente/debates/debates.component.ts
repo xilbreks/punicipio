@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { DebatesService } from './../debates.service';
+
 @Component({
   selector: 'app-debates',
   templateUrl: './debates.component.html',
@@ -7,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DebatesComponent implements OnInit {
 
-  constructor() { }
+  constructor(public ds: DebatesService) {
+  }
 
   ngOnInit() {
   }

@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { RouterModule, Routes } from '@angular/router';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
@@ -23,7 +25,9 @@ import { PresidenteComponent } from './presidente.component';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { DebatesComponent } from './debates/debates.component';
 import { DebateComponent } from './debate/debate.component';
-import { DebateEnCursoComponent } from './debate-en-curso/debate-en-curso.component';
+import { DebateEnCursoComponent, DialogToConfirm, DialogToConfirmWithAsk } from './debate-en-curso/debate-en-curso.component';
+
+import { DebatesService } from './debates.service';
 
 const childRoutes: Routes = [
   {
@@ -58,6 +62,8 @@ const childRoutes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(childRoutes),
+    AngularFireDatabaseModule,
+    ReactiveFormsModule,
     MatMenuModule,
     MatIconModule,
     MatToolbarModule,
@@ -77,7 +83,15 @@ const childRoutes: Routes = [
     PresidenteComponent, 
     UsuarioComponent, 
     DebatesComponent, 
-    DebateComponent, DebateEnCursoComponent
+    DebateComponent,
+    DebateEnCursoComponent, DialogToConfirm, DialogToConfirmWithAsk
+  ],
+  providers: [
+    DebatesService
+  ],
+  entryComponents: [
+    DialogToConfirm,
+    DialogToConfirmWithAsk
   ]
 })
 export class PresidenteModule { }

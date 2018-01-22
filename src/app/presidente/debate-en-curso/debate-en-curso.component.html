@@ -1,3 +1,135 @@
-<p>
-  debate-en-curso works!
-</p>
+<div class="mat-typography">
+  <div *ngIf="!!debates.length; then thenBlock; else elseBlock">
+  </div>
+  <ng-template #thenBlock>
+
+    <section class="votacion" [@votacion]="estadoApp">
+      <div class="item">
+        <h2 class="clave">
+          Pregunta
+        </h2>
+        <div class="valor">
+          {{preguntaVotacion}}
+        </div>
+      </div>
+
+      <div class="resultado">
+        <h2 class="clave">
+          Resultado
+        </h2>
+        <div class="alternativa si">
+          <span class="si">A FAVOR</span>
+          <span class="cantidad">7</span>
+        </div>
+        <div class="alternativa no">
+          <span class="no">EN CONTRA</span>
+          <span class="cantidad">7</span>
+        </div>
+        <div class="alternativa nose">
+          <span class="nose">ABSTENCIÓN</span>
+          <span class="cantidad">7</span>
+        </div>
+        <h2 class="clave">
+          Tiempo
+        </h2>
+        <span>{{tiempoRestante | number:'2.2-2'}}</span>
+        <br>
+        <!--<button mat-raised-button (click)="startChrono()">Start/Pause</button>-->
+      </div>
+
+    </section>
+    <section class="participacion" [@participacion]="estadoApp">
+      Muy Pronto, este 2018, no se lo pierda, solo en SocksApps
+    </section>
+    <section class="debate">
+      <div class="item">
+        <h2 class="clave">
+          Titulo
+        </h2>
+        <div class="valor">
+          {{debates[0].titulo}}
+        </div>
+      </div>
+
+      <div class="item">
+        <h2 class="clave">
+          Estado
+        </h2>
+        <div [ngSwitch]="debates[0].estado" class="valor">
+          <p *ngSwitchCase="'pendiente'">
+            Pendiente
+          </p>
+          <p *ngSwitchCase="'finalizado'">
+            Finalizado
+          </p>
+          <p *ngSwitchCase="'en-curso'">
+            En Curso
+          </p>
+          <p *ngSwitchDefault>
+            Ups, algo salio mal
+          </p>
+        </div>
+      </div>
+
+      <div class="item">
+        <h2 class="clave">
+          Fecha
+        </h2>
+        <div class="valor">
+          {{debates[0].fecha.getDate()}} de
+          <span [ngSwitch]="debates[0].fecha.getMonth()">
+            <span *ngSwitchCase="0">Enero</span>
+            <span *ngSwitchCase="1">Febrero</span>
+            <span *ngSwitchCase="2">Marzo</span>
+            <span *ngSwitchCase="3">Abril</span>
+            <span *ngSwitchCase="4">Mayo</span>
+            <span *ngSwitchCase="5">Junio</span>
+            <span *ngSwitchCase="6">Julio</span>
+            <span *ngSwitchCase="7">Agosto</span>
+            <span *ngSwitchCase="8">Septiembre</span>
+            <span *ngSwitchCase="9">Octubre</span>
+            <span *ngSwitchCase="10">Noviembre</span>
+            <span *ngSwitchCase="11">Diciembre</span>
+            <span *ngSwitchDefault>-----</span>
+          </span>
+          , {{debates[0].fecha.getFullYear()}}
+        </div>
+      </div>
+
+      <div class="item">
+        <h2 class="clave">
+          Agenda
+        </h2>
+        <ul class="valor">
+          <li role="listitem" *ngFor="let a of debates[0].agenda">
+            {{a}}
+          </li>
+        </ul>
+      </div>
+    </section>
+
+  </ng-template>
+  <ng-template #elseBlock>
+    Esperando...
+  </ng-template>
+</div>
+
+<div class="en-participacion" [@participacionButton]="estadoApp">
+  <button mat-raised-button color="primary" (click)="finalizarParticipacion()">
+    Finalizar Participacion
+  </button>
+</div>
+<div class="en-lectura" [@lecturaButton]="estadoApp">
+  <button mat-raised-button color="accent" class="pedir-participaciones" (click)="abrirParticipacion()">
+    Pedir Participacion
+  </button>
+
+  <button mat-raised-button color="accent" class="pedir-votos" (click)="abrirVotos()">
+    Pedir Votos
+  </button>
+</div>
+<div class="en-votacion" [@votacionButton]="estadoApp">
+  <button mat-raised-button color="primary" (click)="finalizarVotos()">
+    Finalizar Participacion
+  </button>
+</div>

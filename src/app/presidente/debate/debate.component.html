@@ -1,3 +1,71 @@
-<p>
-  debate works!
-</p>
+<div class="mat-typography">
+  <div class="item">
+    <h2 class="clave">
+      Titulo
+    </h2>
+    <div class="valor">
+      {{debate.titulo}}
+    </div>
+  </div>
+
+  <div class="item">
+    <h2 class="clave">
+      Estado
+    </h2>
+    <div [ngSwitch]="debate.estado" class="valor">
+      <p *ngSwitchCase="'pendiente'">
+        Pendiente
+      </p>
+      <p *ngSwitchCase="'finalizado'">
+        Finalizado
+      </p>
+      <p *ngSwitchCase="'en-curso'">
+        En Curso
+      </p>
+      <p *ngSwitchDefault>
+        Ups, algo salio mal
+      </p>
+    </div>
+  </div>
+
+  <div class="item">
+    <h2 class="clave">
+      Fecha
+    </h2>
+    <div class="valor">
+      {{debate.fecha.getDate()}} de
+      <span [ngSwitch]="debate.fecha.getMonth()">
+        <span *ngSwitchCase="0">Enero</span>
+        <span *ngSwitchCase="1">Febrero</span>
+        <span *ngSwitchCase="2">Marzo</span>
+        <span *ngSwitchCase="3">Abril</span>
+        <span *ngSwitchCase="4">Mayo</span>
+        <span *ngSwitchCase="5">Junio</span>
+        <span *ngSwitchCase="6">Julio</span>
+        <span *ngSwitchCase="7">Agosto</span>
+        <span *ngSwitchCase="8">Septiembre</span>
+        <span *ngSwitchCase="9">Octubre</span>
+        <span *ngSwitchCase="10">Noviembre</span>
+        <span *ngSwitchCase="11">Diciembre</span>
+        <span *ngSwitchDefault>-----</span>
+      </span>
+      , {{debate.fecha.getFullYear()}}
+    </div>
+  </div>
+
+  <div class="item">
+    <h2 class="clave">
+      Agenda
+    </h2>
+    <ul class="valor">
+      <li role="listitem" *ngFor="let a of debate.agenda">
+        {{a}}
+      </li>
+    </ul>
+  </div>
+
+</div>
+
+<button mat-fab class="crear-nuevo" color="accent" *ngIf="debate.estado=='pendiente'" (click)="openModal()">
+  <mat-icon>play_arrow</mat-icon>
+</button>

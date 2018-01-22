@@ -1,0 +1,47 @@
+.mat-typography{
+  padding: 10px 15px;
+  width: 100%;
+  box-sizing: border-box;
+}
+h1{
+  color: rgba(0, 0, 0, 0.9);
+  color: rgba(63, 81, 181, 1);
+  font-weight: 700;
+  letter-spacing: 5px;
+}
+.item{
+  margin-bottom: 15px;
+}
+
+.clave{
+  margin: 0px;
+  padding: 0px;
+  font-weight: 400;
+  color: rgba(63, 81, 181, 1);
+}
+.valor{
+  margin: 0px;
+  padding: 0px;
+  display: block;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+ul{
+  list-style-position: inside;
+}
+li{
+  padding: 3px 15px;
+}
+li::first-letter{
+  text-transform: capitalize;
+}
+
+.crear-nuevo{
+  position: fixed;
+  z-index: 10;
+  bottom: 24px;
+  right: 24px;
+  margin-right: 12px;
+  transition-property: background-color,box-shadow;
+}
